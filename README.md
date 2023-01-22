@@ -54,16 +54,70 @@ If the control input changes to AB = 10, then all the gates are restricted excep
 ### PROGRAM 
 /*
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
+Developed by: Lokesh N
+RegisterNumber:  22008481
 */
+module mux(I0,I1,I2,I3,S0,S1,Y);
 
+input I0,I1,I2,I3,S0,S1;
+
+output Y;
+
+wire S0C,S1C;
+
+not(S0C,S0);
+
+not(S1C,S1);
+
+wire P,Q,R,S;
+
+and(P,S0C,S1C,I0);
+
+and(Q,S0C,S1,I1);
+
+and(R,S0,S1C,I2);
+
+and(S,S0,S1,I3);
+
+or(Y,P,Q,R,S);
+
+endmodule
+
+Program for 1X4 DeMultiplexer and verify its truth table in quartus using Verilog programming.
+
+Developed by: Lokesh N
+
+RegisterNumber: 22008481
+
+module demux(I,S0,S1,Y0,Y1,Y2,Y3);
+
+input I,S0,S1;
+
+output Y0,Y1,Y2,Y3;
+
+wire S0C,S1C;
+
+not(S0C,S0);
+
+not(S1C,S1);
+
+and(Y0,I,S0C,S1C);
+
+and(Y1,I,S0C,S1);
+
+and(Y2,I,S0,S1C);
+
+and(Y3,I,S0,S1);
+
+endmodule
 
 
 
 
 
 ### RTL LOGIC  
+4x1 MULTIPLEXER:![image](https://user-images.githubusercontent.com/119393019/213903190-9c234d38-95cb-4f9c-b366-3351b4599891.png)
+1X4 DE-MULTIPLEXER:![image](https://user-images.githubusercontent.com/119393019/213903202-23cf8cb0-458e-42f8-9404-8819fe9a5232.png)
 
 
 
@@ -73,12 +127,19 @@ RegisterNumber:
 
 
 ### TIMING DIGRAMS  
+4X1 MULTIPLEXER:![image](https://user-images.githubusercontent.com/119393019/213903224-217ae7e3-e3a0-4560-9531-3fa9ae2702f6.png)
+![image](https://user-images.githubusercontent.com/119393019/213903226-5aa0123b-ed70-47fb-8d75-25344360efae.png)
+![image](https://user-images.githubusercontent.com/119393019/213903230-7b07e306-a7e8-4f67-ac9d-fbfd74f8b989.png)
+![image](https://user-images.githubusercontent.com/119393019/213903233-db23ce2c-aaae-4aa3-b99f-f3e9498121cb.png)
+1X4 DE-MULTIPLEXER:![image](https://user-images.githubusercontent.com/119393019/213903254-b12f4134-0abb-4581-a0f9-c51891819287.png)
 
 
 
 
 
 ### TRUTH TABLE 
+4X1 MULTIPLEXER:![image](https://user-images.githubusercontent.com/119393019/213903268-460f6679-1955-4c9a-a09d-156a9c0d3ad0.png)
+1X4 DE-MULTIPLEXER:![image](https://user-images.githubusercontent.com/119393019/213903279-8902ef50-f659-4991-9de4-b3d04072d5cd.png)
 
 
 
@@ -86,3 +147,4 @@ RegisterNumber:
 
 
 ### RESULTS 
+Hence 4x1 Multiplexer and 1x4 Demultiplexer is been implemented and verified using verilog programming and its output are validated.
